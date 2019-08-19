@@ -100,7 +100,10 @@
 							<div class="col-sm-2">
 								<div class="form-group">
 									<label>&nbsp;</label>
-									<div><button type="submit" name="submit" value="search" id="submit" class="btn btn-primary"><i class="fa fa-fw fa-search"></i> Search</button></div>
+									<div>
+										<button type="submit" name="submit" value="search" id="submit" class="btn btn-primary"><i class="fa fa-fw fa-search"></i> Search</button>
+										<a href="<?php echo $_SERVER['PHP_SELF'];?>" class="btn btn-danger"><i class="fa fa-fw fa-sync"></i> Clear</a>
+									</div>
 								</div>
 							</div>
 						</div>
