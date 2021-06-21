@@ -13,22 +13,17 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 	}else{
 		
 		$userCount	=	$db->getQueryCount('users','id');
-		if($userCount[0]['total']<20){
-			$data	=	array(
-							'username'=>$username,
-							'useremail'=>$useremail,
-							'userphone'=>$userphone,
-						);
-			$insert	=	$db->insert('users',$data);
-			if($insert){
-				header('location:browse-users.php?msg=ras');
-				exit;
-			}else{
-				header('location:browse-users.php?msg=rna');
-				exit;
-			}
+		$data	=	array(
+						'username'=>$username,
+						'useremail'=>$useremail,
+						'userphone'=>$userphone,
+					);
+		$insert	=	$db->insert('users',$data);
+		if($insert){
+			header('location:browse-users.php?msg=ras');
+			exit;
 		}else{
-			header('location:'.$_SERVER['PHP_SELF'].'?msg=dsd');
+			header('location:browse-users.php?msg=rna');
 			exit;
 		}
 	}
@@ -210,10 +205,6 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="rna"){
 
 			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Record not added <strong>Please try again!</strong></div>';
-
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="dsd"){
-
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Please delete a user and then try again <strong>We set limit for security reasons!</strong></div>';
 
 		}
 
